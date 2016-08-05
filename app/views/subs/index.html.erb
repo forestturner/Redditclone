@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>dkljfajklsdfjlk;adf</title>
+  </head>
+  <body>
+    <h1> HellloooooWOrld</h1>
+    <%= link_to "Create Sub", new_sub_url %>
+    <ul>
+      <% @subs.each do |sub| %>
+        <li><%= link_to sub.title, sub_url(sub)  %></li>
+      <%end %>
+    </ul>
+  </body>
+</html>

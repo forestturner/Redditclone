@@ -1,0 +1,15 @@
+<form  action="<%= users_url%>" method="post">
+  <%= auth_helper %>
+
+  <label>
+    Username:
+    <input type="text" name="user[username]" value="<%= user.username if user%>">
+  </label>
+
+  <label>
+    Username:
+    <input type="password" name="user[password]" value="">
+  </label>
+
+  <input type="submit" value="Submit">
+</form>
