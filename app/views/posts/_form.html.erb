@@ -1,0 +1,40 @@
+<% action = post.persisted? ? post_url(post) : posts_url %>
+<% method = post.persisted? ? "patch" : "post" %>
+<% message = post.persisted? ? "Update the darn thing" : "Create the darn thing"%>
+
+
+<form  action="<%= action %>" method="post">
+
+  <input type="hidden" name="_method" value="<%= method %>">
+  <%= auth_helper %>
+
+  <label>
+    Title:
+    <input type="text" name="post[title]" value="<%= post.title if post %>">
+  </label>
+  <br>
+  <label>
+    URL:
+    <input type="text" name="post[url]" value="<%= post.url if post %>">
+  </label>
+  <br>
+  <label>
+    Content:
+    <input type="text" name="post[content]" value="<%= post.content if post %>">
+  </label>
+  <input type="hidden" name="post[sub_ids][]" value="">
+  <label>
+    <ul style="list-style-type:none">
+    <% Sub.all.each do |sub| %>
+
+      <li>
+      <input type="checkbox" name="post[sub_ids][]" value="<%= sub.id %>" <%= "checked" if post.sub_ids.include?(sub.id)  %> >
+      <%= sub.title %>
+    </li>
+
+    <% end %>
+    </ul>
+  </label>
+
+  <input type="submit" value="<%= message %>">
+</form>

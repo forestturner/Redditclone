@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   def new
     @user = User.new
   end
+
   def create
     @user = User.find_by_credentials( user_params[:username], user_params[:password] )
     if @user
@@ -17,6 +18,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    logout(current_user)
+    redirect_to subs_url
   end
 
   private

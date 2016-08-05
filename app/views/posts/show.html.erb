@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Sub: <%= @post.title %></h1>
+    <p>Content:
+      <%= @post.content %>
+    </p>
+    <h3>subs</h3>
+    <ul>
+      <% @subs.each do |sub| %>
+        <li><%= link_to sub.title, sub_url(sub) %></li>
+      <%end %>
+    </ul>
+
+      <%= link_to "Create Post", new_post_url %> <br>
+      <%= link_to "Edit Post", edit_post_url(@post) %>
+
+  </body>
+</html>

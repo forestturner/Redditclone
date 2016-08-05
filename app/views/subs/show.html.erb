@@ -5,16 +5,19 @@
     <title></title>
   </head>
   <body>
-    <h1><%= @sub.title %> Posts</h1>
-
+    <h1>Sub: <%= @sub.title %></h1>
+    <p>Description:
+      <%= @sub.description %>
+    </p>
+    <h3>Sub Posts</h3>
     <ul>
       <% @posts.each do |post| %>
-        <li><%= link_to post.title, post.url %></li>
+        <li><%= link_to post.title, post_url(post) %></li>
       <%end %>
     </ul>
 
-
-<%= link_to "edit sub", edit_sub_url(@sub) %>
+      <%= link_to "Create Post", new_post_url %> <br>
+      <%= link_to "Edit Sub", edit_sub_url(@sub) %>
 
   </body>
 </html>

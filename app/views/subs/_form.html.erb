@@ -4,9 +4,9 @@
 
 
 <form  action="<%= action %>" method="post">
-  
-  <input type="hidden" name="_method" value="<%= method %>">
 
+  <input type="hidden" name="_method" value="<%= method %>">
+  <%= auth_helper %>
 
   <label>
     Title:
