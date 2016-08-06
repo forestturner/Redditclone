@@ -1,1 +1,8 @@
 <%= link_to "#{parent_comment.content}", comment_url(parent_comment) %>
+<ul>
+  <% if parent_comment.children %>
+    <% parent_comment.children.each do |child_comment| %>
+    <li><%= render "comments/comment", parent_comment: child_comment %></li>
+    <% end %>
+  <% end %>
+</ul>
