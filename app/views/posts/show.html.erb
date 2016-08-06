@@ -9,15 +9,24 @@
     <p>Content:
       <%= @post.content %>
     </p>
-    <h3>subs</h3>
+    <h3>Subs:</h3>
     <ul>
       <% @subs.each do |sub| %>
         <li><%= link_to sub.title, sub_url(sub) %></li>
       <%end %>
     </ul>
+    <h3>Comments:</h3>
+    <ul>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+          <li><%= render "comments/comment", parent_comment: comment %></li>
+        <%end%>
+      <%end%>
+      </ul>
 
-      <%= link_to "Create Post", new_post_url %> <br>
-      <%= link_to "Edit Post", edit_post_url(@post) %>
+  <%= link_to "Comment on this post", new_comment_url(post_id: @post.id) %><br>
+  <%= link_to "Create Post", new_post_url %> <br>
+  <%= link_to "Edit Post", edit_post_url(@post) %>
 
   </body>
 </html>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resource :session
   resources :posts, except: [:index]
   resources :subs, except: [:destroy]
+  resources :comments, only: [:new, :create,:show]
   root to: "subs#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
