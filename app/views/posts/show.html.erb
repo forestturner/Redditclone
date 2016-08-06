@@ -18,8 +18,8 @@
     <h3>Comments:</h3>
     <ul>
       <% if @comments %>
-        <% @comments.each do |comment| %>
-          <li><%= render "comments/comment", parent_comment: comment %></li>
+        <% @comments.where(parent_id: nil).each do |comment| %>
+          <li><%= render "comments/comment", {parent_comment: comment, all_comments: @comments} %></li>
         <%end%>
       <%end%>
       </ul>

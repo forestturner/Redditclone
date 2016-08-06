@@ -1,8 +1,9 @@
-<%= link_to "#{parent_comment.content}", comment_url(parent_comment) %>
+<%= link_to "#{parent_comment.content}", comment_url(parent_comment) %><br>
+<%= User.find(parent_comment.user_id).username %> commented  <%= distance_of_time_in_words(parent_comment.created_at, Time.now) %> ago
 <ul>
-  <% if parent_comment.children %>
-    <% parent_comment.children.each do |child_comment| %>
-    <li><%= render "comments/comment", parent_comment: child_comment %></li>
+  <% #if all_comments.where(parent_id: parent_comment.id) %>
+    <% all_comments.where(parent_id: parent_comment.id).each do |child_comment| %>
+    <li><%= render "comments/comment", {parent_comment: child_comment, all_comments: all_comments} %></li>
     <% end %>
-  <% end %>
+  <% #end %>
 </ul>

@@ -9,9 +9,9 @@ class Comment < ActiveRecord::Base
   foreign_key: :parent_id,
   class_name: :Comment
 
-  has_many :children,
-  primary_key: :id,
-  foreign_key: :parent_id,
-  class_name: :Comment
+  # has_many :children,
+  # primary_key: :id,
+  # foreign_key: :parent_id,
+  # class_name: :Comment
 
 end

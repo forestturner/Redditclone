@@ -30,7 +30,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @subs = @post.subs
-    @comments = Comment.where(post_id: params[:id], parent_id: nil)
+    @comments = @post.comments
+    #@comments = Comment.where(post_id: params[:id], parent_id: nil)
   end
 
   def update
